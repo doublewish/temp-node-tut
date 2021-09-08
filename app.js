@@ -1,5 +1,16 @@
-const _ = require('lodash')
+#!/usr/bin/env node
+const util = require('util')
+const timerPromise = util.promisify(setTimeout)
 
-const items = [1, [2, [3, [4]]]]
-const newItems = _.flattenDeep(items)
-console.log(newItems)
+
+
+const start = async() => {
+  try {
+    const res = await timerPromise(1000, "Finally")
+    console.log(res)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+start()
